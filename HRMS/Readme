@@ -1,0 +1,41 @@
+windows
+=======
+Step 1 => Extract/unzip the file
+Step 2 => Go inside the project folder, open cmd and type the following commands to install Django Framework and run the webserver:
+Step 3 => python -m venv django2-venv
+Step 4 => .\django2-venv\Scripts\activate
+Step 5 => python -m pip install -r requirement.txt
+Step 6 => python manage.py migrate 
+
+
+
+Database Dependency
+===================
+python manage.py migrate
+python manage.py makemigrations hr_tags
+python manage.py migrate hr_tags
+python manage.py makemigrations hr_departments
+python manage.py migrate hr_tags
+python manage.py makemigrations hr_jobs
+python manage.py migrate hr_jobs
+python manage.py makemigrations hr_employees
+python manage.py migrate hr_employees
+python manage.py makemigrations hr_contracts
+python manage.py migrate hr_contracts
+python manage.py makemigrations hr_recruitments
+python manage.py migrate hr_recruitments
+python manage.py makemigrations hr_expenses
+python manage.py migrate hr_expenses
+python manage.py makemigrations hr_attendances
+python manage.py migrate hr_attendances
+python manage.py makemigrations hr_payrolls
+python manage.py migrate hr_payrolls
+python manage.py makemigrations hr_account
+python manage.py migrate hr_account
+python manage.py createsuperuser
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Step 7 => python manage.py runserver
+step 8 => Finally, open the browser localhost:8000/ and go to http://127.0.0.0:8000/
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div>
+	<h2> Do you want to delete payroll ? </h2>
+	<h4> Details </h4>
+	<div>
+		<ul>
+			<li><b>Name: </b> {{ payroll.name }} </li>
+			<li><b>Salary: </b> {{ payroll.salary }} </li>
+			<li><b>OT Rate: </b> {{ payroll.ot_rate }} </li>
+			<li><b>Allowance: </b> {{ payroll.allowance }} </li>
+			<li><b>Overtime: </b> {{ payroll.overtime }} </li>
+			<li><b>Deduction: </b> {{ payroll.deduction }} </li>
+			<li><b>Is Active: </b> {{ payroll.is_active }} </li>
+			<li><b>Attachment: </b> {{ payroll.attachment }} </li>
+		</ul>
+	</div>
+	<form method="POST" action="/hr_payrolls/delete/{{payroll.id}}/">
+		{% csrf_token %}
+		<a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+		<input type="submit" value="Delete" class="btn btn-danger">
+	</form>
+</div>
+{% endblock %}

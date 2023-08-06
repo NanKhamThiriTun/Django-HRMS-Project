@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div>
+	<h2> Do you want to delete resume ? </h2>
+	<h4> Details </h4>
+	<div>
+		<ul>
+			<li><b>Name: </b> {{ resume.name }} </li>
+			<li><b>Sequence: </b> {{ resume.sequence }} </li>
+			<li><b>Appointment Date: </b> {{ resume.appointment_date }} </li>
+			<li><b>Note: </b> {{ resume.note }} </li>
+			<li><b>Status: </b> {{ resume.status }} </li>
+			<li><b>Is Active: </b> {{ resume.is_active }} </li>
+			<li><b>Create Date: </b> {{ resume.create_date }} </li>
+			<li><b>Attachment: </b> {{ resume.attachment }} </li>
+		</ul>
+	</div>
+	<form method="POST" action="/hr_recruitments/delete/{{resume.id}}/">
+		{% csrf_token %}
+		<a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+		<input type="submit" value="Delete" class="btn btn-danger">
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} Attendances {% endblock %}
+{% block body_block %}
+<div class="container">
+    <br/>
+    <h1 class="float-right"> Update Attendance </h1>
+    <br/>
+
+    <form method="POST" action="/hr_attendances/update/{{attendance.id}}/" >
+        {% csrf_token %}      
+
+        <div class="form-group">
+            <a href="javascript:history.back()" class="btn btn-dark"> 
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> Back </a>
+            <input type="submit" value="Save" class="btn btn-info">
+        </div>
+
+        <div class="form-row">
+			<div class="form-group col-md-6">
+				<label>  Name </label>
+				<input type='text' name='name' value='{{form.name}}' class="form-control" required/>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label> Employee </label>
+				<input type='text' name='employee' value='{{form.employee}}' class="form-control" placeholder='Your Address'
+				required/>
+			</div>
+		</div>
+
+        <div class="form-row">
+			<div class="form-group col-md-6">
+				<label> Sign In </label>
+				<input type='datetime-local' name='sign_in' value='{{form.sign_in}}' class="form-control" required/>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label> Sign Out </label>
+				<input type='datetime-local' name='sign_out' value='{{form.sign_out}}' class="form-control" placeholder='Your Address'
+				required/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label> Is Active </label>
+			<input type='checkbox' name='is_active' {% if form.is_active %}checked{% endif %} />
+		</div>
+
+        <br/>
+       
+    </form>
+</div>
+{% endblock %}

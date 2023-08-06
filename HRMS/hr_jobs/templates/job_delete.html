@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div>
+	<h2> Do you want to delete job ? </h2>
+	<h4> Details </h4>
+	<div>
+		<ul>
+			<li><b>Name: </b> {{ job.name }} </li>
+			<li><b>Sequence: </b> {{ job.sequence }} </li>
+			<li><b>Open Date: </b> {{ job.open_date }} </li>
+			<li><b>Expected Salary: </b> {{ job.expected_salary }} </li>
+			<li><b>Note: </b> {{ job.note }} </li>
+			<li><b>Status: </b> {{ job.status }} </li>
+			<li><b>Is Active: </b> {{ job.is_active }} </li>
+			<li><b>Create Date: </b> {{job.create_date }} </li>
+			<li><b>Attachment: </b> {{ job.attachment }} </li>
+		</ul>
+	</div>
+	<form method="POST" action="/hr_jobs/delete/{{job.id}}/">
+		{% csrf_token %}
+		<a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+		<input type="submit" value="Delete" class="btn btn-danger">
+	</form>
+</div>
+{% endblock %}

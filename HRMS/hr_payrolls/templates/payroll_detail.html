@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">
+    <br/>
+    <h1 class="float-right"> Payroll Details </h1>
+    <br/>
+
+    <form class="mt-5" method="POST" action="/hr_payrolls/new_payroll/" enctype="multipart/form-
+    data">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Name </label>
+                    <div class="col-md-9">
+                        <input type='text' name='name' value='{{payroll.name}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Salary </label>
+                    <div class="col-md-9">
+                        <input type='text' name='salary' value='{{payroll.salary}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> OT Rate </label>
+                    <div class="col-md-9">
+                        <input type='text' name='ot_rate' value='{{payroll.ot_rate}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Allowance </label>
+                    <div class="col-md-9">
+                        <input type='text' name='allowance' value='{{payroll.allowance}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Overtime </label>
+                    <div class="col-md-9">
+                        <input type='text' name='overtime' value='{{payroll.overtime}}' class="form-control" readonly/> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Deduction </label>
+                    <div class="col-md-9">
+                        <input type='text' name='deduction' value='{{payroll.deduction}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Attachment </label>
+                    <div class="col-md-9">
+                        <input type='text' name='attachment' value='{{payroll.attachment}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Is Active </label>
+                    <div class="col-md-9">
+                        <input type='checkbox' name='is_active' {% if payroll.is_active %}checked{% endif %}
+                        onclick="return false;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <a class="btn btn-dark" href="/hr_payrolls/show_payroll"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i> Back </a>
+            <a class="btn btn-primary" href="/hr_payrolls/update/{{payroll.id}}/"> Update </a>
+            <a class="btn btn-danger" href="/hr_payrolls/delete/{{payroll.id}}/" 
+            onclick="return confirm('Are you sure?');"> Delete </a>
+        </div>
+        <br/>
+
+    </form>
+</div>
+{% endblock %}

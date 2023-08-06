@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">
+	<br/>
+	<h1 class="float-right"> Update resume </h1>
+	<br/>
+	<form method="POST" action="/hr_recruitments/update/{{form.instance.id}}/" enctype="multipart/form-data">
+		{% csrf_token %}
+		
+	<div class="form-group">
+		<a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+		<input type="submit" value="Create" class="btn btn-primary">
+	</div>
+	<br>
+	{{ form.as_p }}
+	</form>
+</div>
+{% endblock %}

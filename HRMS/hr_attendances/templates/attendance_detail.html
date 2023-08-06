@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">
+    <br/>
+    <h1 class="float-right"> Attendance Details </h1>
+    <br/>
+
+    <form class="mt-5" method="POST" action="/hr_attendances/new_attendance/" enctype="multipart/form-
+    data">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Name </label>
+                    <div class="col-md-9">
+                        <input type='text' name='name' value='{{attendance.name}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Sign In </label>
+                    <div class="col-md-9">
+                        <input type='text' name='sign_in' value='{{attendance.sign_in}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <div class="form-row">
+                        <label class="col-md-3 font-weight-bold"> Sign Out </label>
+                        <div class="col-md-9">
+                            <input type='text' name='sign_out' value='{{attendance.sign_out}}' class="form-control" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <div class="form-row">
+                        <label class="col-md-3 font-weight-bold"> Employee </label>
+                        <div class="col-md-9">
+                            <input type='text' name='employee' value='{{attendance.employee}}' class="form-control" readonly/>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        <br/>
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Is Active </label>
+                    <div class="col-md-9">
+                        <input type='checkbox' name='is_active' {% if attendance
+                        .is_active %}checked
+                        onclick="return false;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/> 
+        <br/>
+        <div class="form-group">
+            <a class="btn btn-dark" href="/hr_attendances/show_attendance"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i> Back </a>
+            <a class="btn btn-primary" href="/hr_attendances/update/{{attendance.id}}/"> Update </a>
+            <a class="btn btn-danger" href="/hr_attendances/delete/{{attendance.id}}/" 
+            onclick="return confirm('Are you sure?');"> Delete </a>
+        </div>
+        <br/>
+
+    </form>
+</div>
+{% endblock %}

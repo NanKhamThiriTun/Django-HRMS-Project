@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">
+	<br/>
+	<h1 class="float-right"> Employee Details </h1>
+	<br/>
+
+	<form class="mt-5" method="POST" action="/employees/new_employee/" enctype="multipart/form-
+	data">
+		{% csrf_token %}
+		
+		<br/>
+
+		<div class="form-row">
+			<div class="col-md-6 form-group">
+				<div class="form-row">
+					<label class="col-md-3 font-weight-bold"> Name </label>
+					<div class="col-md-9">
+						<input type='text' name='name' value='{{employee.name}}' class="form-control" readonly/>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6 form-group">
+				<div class="form-row">
+					<label class="col-md-3 font-weight-bold"> Age </label>
+					<div class="col-md-9">
+						<input type='text' name='age' value='{{employee.age}}' class="form-control" readonly/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Birthday </label>
+                    <div class="col-md-9">
+                        <input type='text' name='birthday' value='{{employee.birthday}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Address </label>
+                    <div class="col-md-9">
+                        <input type='text' name='birthday' value='{{employee.address}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Email </label>
+                    <div class="col-md-9">
+                        <input type='text' name='email' value='{{employee.email}}' class="form-control" readonly/> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Gender </label>
+                    <div class="col-md-9">
+                        <input type='text' name='gender' value='{{employee.gender}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Joining Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='birthday' value='{{employee.joining_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Image </label>
+                    <div class="col-md-9">
+                        <input type='text' name='is_married' value='{{employee.image}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="form-row">
+			<div class="col-md-6 form-group">
+				<div class="form-row">
+					<label class="col-md-3 font-weight-bold"> Is Married </label>
+					<div class="col-md-9">
+						<input type='checkbox' name='is_married' {% if employee.is_married %}checked{% endif %}
+						onclick="return false;"/>
+					</div>
+				</div>
+			</div>
+		</div>
+        <br>
+        <div class="form-group">
+			<a class="btn btn-dark" href="/employees/show_employee"><i class="fa fa-arrow-left"
+			aria-hidden="true"></i> Back </a>
+			<a class="btn btn-primary" href="/employees/update_employee/{{employee.id}}/"> Update </a>
+			<a class="btn btn-danger" href="/employees/delete/{{employee.id}}/" 
+			onclick="return confirm('Are you sure?');"> Delete </a>
+		</div>
+        <br>
+	</form>
+
+</div>
+{% endblock %}

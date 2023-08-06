@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">
+    <br/>
+    <h1 class="float-right"> Contract Details </h1>
+    <br/>
+
+    <form class="mt-5" method="POST" action="/hr_contracts/new_contract/" enctype="multipart/form-
+    data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Name </label>
+                    <div class="col-md-9">
+                        <input type='text' name='name' value='{{contract.name}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Rank </label>
+                    <div class="col-md-9">
+                        <input type='text' name='age' value='{{contract.rank}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Start Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='birthday' value='{{contract.start_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> End Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='birthday' value='{{contract.end_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Note </label>
+                    <div class="col-md-9">
+                        <input type='text' name='email' value='{{contract.note}}' class="form-control" readonly/> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Status </label>
+                    <div class="col-md-9">
+                        <input type='text' name='gender' value='{{contract.status}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Create Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='birthday' value='{{contract.create_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Attachment </label>
+                    <div class="col-md-9">
+                        <input type='text' name='is_married' value='{{contract.attachment}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Employee </label>
+                    <div class="col-md-9">
+                        <input type='text' name='employee' value='{{contract.employee}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Tags </label>
+                    <div class="col-md-9">
+                        {% for tag in contract.tags.all %}
+                            <a href="#" class="badge badge-pill badge-info"> {{tag}} </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Is Active </label>
+                    <div class="col-md-9">
+                        <input type='checkbox' name='is_married' {% if contract.is_active %}checked{% endif %}
+                        onclick="return false;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <a class="btn btn-dark" href="/hr_contracts/show_contract"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i> Back </a>
+            <a class="btn btn-primary" href="/hr_contracts/update/{{contract.id}}/"> Update </a>
+            <a class="btn btn-danger" href="/hr_contracts/delete/{{contract.id}}/" 
+            onclick="return confirm('Are you sure?');"> Delete </a>
+        </div>
+        <br/>
+    </form>
+</div>
+{% endblock %}

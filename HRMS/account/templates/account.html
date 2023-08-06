@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-profile">
+            <img src="{% static '/img/bg-profile.jpg' %}" alt="Image placeholder" class="card-img-top">
+            <div class="row justify-content-center">
+              <div class="col-4 col-lg-4 order-lg-2">
+                <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                  <a href="javascript:;">
+                    <img src="{% static '/img/team-2.jpg' %}" class="rounded-circle img-fluid border border-2 border-white">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-0">
+              <div class="text-center mt-4">
+                <h5>
+                  {{account_form.initial.username}}
+                </h5>
+                <div class="h6 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>{{account_form.initial.email}}
+                </div>
+                <div class="h6 mt-8">
+                  <i >Position -</i>{{ user.position}}
+                </div>
+                <div>
+                  <i class="ni education_hat mr-2"></i>Superuser - {{ user.is_superuser }}
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <form method="post">{% csrf_token %}
+            <div class="card-header pb-0">
+              <div class="d-flex align-items-center">
+                <p class="mb-0">Edit Profile</p>
+                <a href="{% url 'password_change'%}" class="btn btn-primary btn-sm ms-auto">Change Password</a>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="text-uppercase text-sm">User Information</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Username</label>
+                    <input class="form-control" type="text" name="username" value="{{account_form.initial.username}}">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Email address</label>
+                    <input class="form-control" type="email" name="email" value={{account_form.initial.email}}>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Joined Date</label>
+                    <input class="form-control" type="text" name="date_joined" readonly value="{{user.date_joined}}">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Position</label>
+                    <input class="form-control" type="text" name="position"readonly value={{user.position}}>
+                  </div>
+                </div>
+                {% for field in account_form %}
+                <p>
+                  {% for error in field.errors %}
+                    <p style="color: red">{{ error }}</p>
+                  {% endfor %}
+                </p>
+                {% endfor %}
+                {% if account_form.non_field_errors %}
+                  <div style="color: red">
+                    <p>{{account_form.non_field_errors}}</p>
+                  </div>
+                {% endif %}
+
+                {% if success_message %}
+                  <p style="color:green; text-align: center;">{{success_message}}</p>
+                {% endif  %}
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Save changes</button>
+
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

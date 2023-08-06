@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">
+    <br/>
+    <h1 class="float-right"> Job Details </h1>
+    <br/>
+
+    <form class="mt-5" method="POST" action="/hr_jobs/new_job/" enctype="multipart/form-
+    data">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Name </label>
+                    <div class="col-md-9">
+                        <input type='text' name='name' value='{{job.name}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Sequence </label>
+                    <div class="col-md-9">
+                        <input type='text' name='sequence' value='{{job.sequence}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Expected Salary </label>
+                    <div class="col-md-9">
+                        <input type='text' name='expected_salary' value='{{job.expected_salary}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Open Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='open_date' value='{{job.open_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Note </label>
+                    <div class="col-md-9">
+                        <input type='text' name='note' value='{{job.note}}' class="form-control" readonly/> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Status </label>
+                    <div class="col-md-9">
+                        <input type='text' name='status' value='{{job.status}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Create Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='create_date' value='{{job.create_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Attachment </label>
+                    <div class="col-md-9">
+                        <input type='text' name='attachment' value='{{job.attachment}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Is Active </label>
+                    <div class="col-md-9">
+                        <input type='checkbox' name='is_active' {% if job.is_active %}checked{% endif %}
+                        onclick="return false;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <a class="btn btn-dark" href="/hr_jobs/show_job"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i> Back </a>
+            <a class="btn btn-primary" href="/hr_jobs/update/{{job.id}}/"> Update </a>
+            <a class="btn btn-danger" href="/hr_jobs/delete/{{job.id}}/" 
+            onclick="return confirm('Are you sure?');"> Delete </a>
+        </div>
+        <br/>
+
+    </form>
+</div>
+{% endblock %}

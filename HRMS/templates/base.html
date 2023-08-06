@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>HRMS</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link
+      href="{% static 'assets/vendor/fonts/circular-std/style.css' %}"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'assets/libs/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/datatables/css/dataTables.bootstrap4.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/datatables/css/buttons.bootstrap4.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/datatables/css/select.bootstrap4.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/datatables/css/fixedHeader.bootstrap4.css' %}">
+    <script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.js'%}"></script>
+    <script src="{%% statc 'assets/vendor/slimscroll/jquery.slimscroll.js'}"></script>
+    
+  </head>
+
+  <body>
+    <div class="dashboard-main-wrapper">
+      {% include 'header.html' %} 
+      {% include 'nav.html' %} 
+      {% include 'sidebar.html' %}
+      {% block head_block %}  {% endblock %}
+      <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+      {% block body_block %}  {% endblock %} 
+      {% include 'footer.html' %}
+      </div>
+      </div>
+    
+    </div>
+  </body>
+</html>

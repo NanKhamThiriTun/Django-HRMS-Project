@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header"> Employee Create </h5>
+            <div class="card-body">
+                <form id="validationform" data-parsley-validate="" novalidate="" method="POST" action="/employees/new_employee/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Name</label>
+                        <div class="col-12 col-sm-8 col-lg-6">
+                            <input type="text" required=""name="name" placeholder="Enter Your Name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Age</label>
+                        <div class="col-12 col-sm-8 col-lg-6">
+                            <input type="text" required=""name="age" placeholder="Enter Your Age" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Birthday</label>
+                        <div class="col-12 col-sm-8 col-lg-6">
+                            <input type="date" required=""name="birthday" placeholder="Enter Your Birthday" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Address</label>
+                        <div class="col-12 col-sm-8 col-lg-6">
+                            <input type="text" required=""name="address" placeholder="Enter Your Address" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Email</label>
+                        <div class="col-12 col-sm-8 col-lg-6">
+                            <input type="email" required=""name="email" placeholder="Enter Your Email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Joining Date</label>
+                        <div class="col-12 col-sm-8 col-lg-6">
+                            <input type="datetime-local" required=""name="joining_date" placeholder="Enter Your Email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Upload Image</label>
+                        <div class="col-12 col-sm-8 col-lg-6">
+                            <input type="file" required=""name="image" placeholder="Enter Your Email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right"> Gender </label>
+                        <select name="gender" class="col-12 col-sm-8 col-lg-6">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-sm-3 col-form-label text-sm-right"> Is Married </label>
+                        <input type='checkbox' name='is_married' />
+                    </div>
+                    <div class="form-group row text-sm-right">
+                        <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                            <input type="submit" value="Create" class="btn btn-space btn-primary">
+                            <a href="javascript:history.back()" class="btn btn-space btn-secondary"> Back </a>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

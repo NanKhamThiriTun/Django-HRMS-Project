@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div>
+	<h2> Do you want to delete expense ? </h2>
+	<h4> Details </h4>
+	<div>
+		<ul>
+			<li><b>Name: </b> {{ expense.name }} </li>
+			<li><b>Quantity: </b> {{ expense.quantity }} </li>
+			<li><b>Product: </b> {{ expense.product }} </li>
+			<li><b>Price: </b> {{ expense.price }} </li>
+			<li><b>Total: </b> {{ expense.total }} </li>
+			<li><b>Reason: </b> {{ expense.reason}} </li>
+			<li><b>Is Active: </b> {{ expense.is_active }} </li>
+			<li><b>Attachment: </b> {{ expense.attachment }} </li>
+		</ul>
+	</div>
+	<form method="POST" action="/hr_expenses/delete/{{expense.id}}/">
+		{% csrf_token %}
+		<a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+		<input type="submit" value="Delete" class="btn btn-danger">
+	</form>
+</div>
+{% endblock %}

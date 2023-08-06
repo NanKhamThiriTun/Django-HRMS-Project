@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header"> Expense Create </h5>
+            <div class="card-body">
+                <form id="validationform" data-parsley-validate="" novalidate="" method="POST" action="/hr_expenses/new_expense/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                                       
+                    <div class="form-group row text-sm-right">
+                        <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                            <input type="submit" value="Create" class="btn btn-space btn-primary">
+                            <a href="javascript:history.back()" class="btn btn-space btn-secondary"> Back </a>
+                        </div>
+                    </div>
+                     {{ form.as_p }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

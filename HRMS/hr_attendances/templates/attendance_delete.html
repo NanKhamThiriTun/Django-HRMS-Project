@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div>
+	<h2> Do you want to delete attendance? </h2>
+	<h4> Details </h4>
+	<div>
+		<ul>
+			<li><b>Name: </b> {{ attendance.name }} </li>
+			<li><b>Sign In: </b> {{ attendance.sign_in }} </li>
+			<li><b>Sign Out : </b> {{ attendance.sign_out }} </li>
+			<li><b>Employees: </b> {{ attendance.employees }} </li>
+			<li><b>Is Active: </b> {{ attendance.is_active }} </li>
+		</ul>
+	</div>
+	<form method="POST" action="/hr_attendances/delete/{{attendance.id}}/">
+		{% csrf_token %}
+		<a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+		<input type="submit" value="Delete" class="btn btn-danger">
+	</form>
+</div>
+{% endblock %}

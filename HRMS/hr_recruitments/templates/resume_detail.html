@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block head_block %} {% endblock %}
+{% block body_block %}
+<div class="container">
+    <br/>
+    <h1 class="float-right"> Resume Details </h1>
+    <br/>
+
+    <form class="mt-5" method="POST" action="/hr_recruitments/new_resume/" enctype="multipart/form-
+    data">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Name </label>
+                    <div class="col-md-9">
+                        <input type='text' name='name' value='{{resume.name}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Sequence </label>
+                    <div class="col-md-9">
+                        <input type='text' name='sequence' value='{{resume.sequence}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Appointment Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='appointment_date' value='{{resume.appointment_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Note </label>
+                    <div class="col-md-9">
+                        <input type='text' name='note' value='{{resume.note}}' class="form-control" readonly/> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Status </label>
+                    <div class="col-md-9">
+                        <input type='text' name='status' value='{{resume.status}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Create Date </label>
+                    <div class="col-md-9">
+                        <input type='text' name='create_date' value='{{resume.create_date}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Attachment </label>
+                    <div class="col-md-9">
+                        <input type='text' name='attachment' value='{{resume.attachment}}' class="form-control" readonly/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <div class="form-row">
+                        <label class="col-md-4 font-weight-bold"> Employee </label>
+                        <div class="col-md-8">
+                            {{resume.employee}}
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 form-group">
+                    <div class="form-row">
+                        <label class="col-md-4 font-weight-bold"> Tags </label>
+                            <div class="col-md-8">
+                            {% for tag in resume.tags.all %}
+                            <a href="#" class="badge badge-pill badge-info"> {{tag}} </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group">
+                <div class="form-row">
+                    <label class="col-md-3 font-weight-bold"> Is Active </label>
+                    <div class="col-md-9">
+                        <input type='checkbox' name='is_active' {% if resume.is_active %}checked{% endif %}
+                        onclick="return false;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <a class="btn btn-dark" href="/hr_recruitments/show_resume"><i class="fa fa-arrow-left"
+            aria-hidden="true"></i> Back </a>
+            <a class="btn btn-primary" href="/hr_recruitments/update/{{resume.id}}/"> Update </a>
+            <a class="btn btn-danger" href="/hr_recruitments/delete/{{resume.id}}/" 
+            onclick="return confirm('Are you sure?');"> Delete </a>
+        </div>
+        <br>
+    </form>
+</div>
+
+{% endblock %}

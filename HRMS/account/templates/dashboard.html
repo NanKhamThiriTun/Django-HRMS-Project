@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Employees {% endblock %}
+{% block body_block %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="">
+  <div class="wrapper ">
+    
+    <div class="main-panel" id="main-panel">
+      
+
+
+<main class=" ">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow-success text-center rounded-circle">
+                    <i class="fa fa-laptop text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Admin</p>
+                    <h5 class="font-weight-bolder">
+                      {{admin_count}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
+                    <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Employees</p>
+                    <h5 class="font-weight-bolder">
+                      {{emp_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-success shadow-warning text-center rounded-circle">
+                    <i class="fa fa-fw fa-rocket text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Contract</p>
+                    <h5 class="font-weight-bolder">
+                      {{cont_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-danger shadow-success text-center rounded-circle">
+                    <i class="fas fa-archive text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Job</p>
+                    <h5 class="font-weight-bolder">
+                      {{job_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-danger shadow-success text-center rounded-circle">
+                    <i class="	fas fa-id-card-alt  text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Departments</p>
+                    <h5 class="font-weight-bolder">
+                      {{dept_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-warning shadow-success text-center rounded-circle">
+                    <i class="fa fa-sitemap text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Recruitment</p>
+                    <h5 class="font-weight-bolder">
+                      {{rect_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-success shadow-warning text-center rounded-circle">
+                    <i class="fas fa-id-card-alt text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Attendance</p>
+                    <h5 class="font-weight-bolder">
+                      {{atte_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-info shadow-success text-center rounded-circle">
+                    <i class="far fa-credit-card text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Expense</p>
+                    <h5 class="font-weight-bolder">
+                      {{expen_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-info shadow-success text-center rounded-circle">
+                    <i class="fas fa-gift text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Payroll</p>
+                    <h5 class="font-weight-bolder">
+                      {{expen_total}}
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        
+          
+      </div>
+    </div>
+
+     
+      
+    </div>
+  </div>
+ 
+</body>
+
+</html>
+{% endblock %}
+
